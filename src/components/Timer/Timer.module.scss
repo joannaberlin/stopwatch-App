@@ -1,0 +1,33 @@
+@import '../../styles/settings.scss';
+
+.container {
+	background-color: $color-dark;
+	width: 500px;
+	height: 200px;
+	border: 1px solid $color-light;
+	border-radius: $radius;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: auto;
+	margin-top: 10%;
+}
+
+.button {
+	background: $color-main;
+	border: 0;
+	color: $color-light;
+	text-align: center;
+	line-height: 1.3;
+	padding: $base-size;
+	margin: 0 $base-size $base-size $base-size;
+	border-radius: $radius;
+	cursor: pointer;
+	font-weight: 700;
+	text-transform: uppercase;
+
+	&:hover {
+		background: darken($color-main, 5%);
+	}
+}
