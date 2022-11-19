@@ -1,6 +1,4 @@
 const Timer = ({ time }) => {
-	//time in HH:mm:ss.ms format
-	//tu mam tylko konwertować czas pobrany w milisekundach do danego formatu i renderować w widoku
 	let milliseconds, seconds, minutes, hours;
 
 	const msToTime = (ms) => {
