@@ -4,33 +4,26 @@ import styles from './components/Timer/Timer.module.scss';
 
 const App = () => {
 	const [time, setTime] = useState(0);
-	const [start, setStart] = useState(false);
+	const [timer, setTimer] = useState(null);
 
 	useEffect(() => {
-		let interval = null;
-
-		if (start) {
-			interval = setInterval(() => {
-				setTime((prevTime) => prevTime + 10);
-			}, 10);
-		} else {
-			clearInterval(interval);
-		}
-
-		return () => clearInterval(interval);
-	}, [start]);
+		return () => clearInterval(timer);
+	}, [timer]);
 
 	const startTimer = () => {
-		setStart(true);
+		setTimer(
+			setInterval(() => {
+				setTime((prevValue) => prevValue + 10);
+			}, 10)
+		);
 	};
 
 	const stopTimer = () => {
-		setStart(false);
+		clearInterval(timer);
 	};
 
 	const resetTimer = () => {
 		setTime(0);
-		setStart(false);
 	};
 
 	return (
