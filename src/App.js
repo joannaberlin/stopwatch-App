@@ -7,19 +7,26 @@ const App = () => {
 	const [timer, setTimer] = useState(null);
 
 	useEffect(() => {
-		return () => clearInterval(timer);
+		return () => {
+			if (timer) {
+				clearInterval(timer);
+			}
+		};
 	}, [timer]);
 
 	const startTimer = () => {
-		setTimer(
-			setInterval(() => {
-				setTime((prevValue) => prevValue + 10);
-			}, 10)
-		);
+		if (!timer) {
+			setTimer(
+				setInterval(() => {
+					setTime((prevValue) => prevValue + 10);
+				}, 10)
+			);
+		}
 	};
 
 	const stopTimer = () => {
 		clearInterval(timer);
+		setTimer(null);
 	};
 
 	const resetTimer = () => {
